@@ -125,7 +125,22 @@ self.addEventListener('fetch', function (event) {
 
   if (isAudio(url)) { event.respondWith(audioResponse(event)); return; }
 
-  if (req.mode === 'navigate') {
+  /* Los reproductores de discos (discos/*.html, se abren en un iframe) son páginas propias:
+     van por red y, si no hay conexión, se sirven de la caché; nunca se sustituyen por la app */
+  if (url.pathname.indexOf('/discos/') !== -1) {
+    event.respondWith(
+      fetch(req).then(function (r) {
+        if (r && r.ok && r.status === 200) {
+          var copy = r.clone();
+          caches.open(SHELL).then(function (c) { c.put(req.url, copy); });
+        }
+        return r;
+      }).catch(function () { return caches.match(req.url); })
+    );
+    return;
+  }
+
+  if (req.mode === 'navigate' && req.destination !== 'iframe') {
     /* Cualquier apertura de la app usa la misma página guardada */
     event.respondWith(staleWhileRevalidate(event, SCOPE_URL));
     return;
