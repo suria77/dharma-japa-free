@@ -20,7 +20,7 @@
       title: 'Usar sin conexión',
       sub: 'La app ya se abre sin Internet. Aquí puedes guardar también los audios y las imágenes de las malas para usarlos sin conexión.',
       ui: 'Interfaz de la app', audio: 'Audios', images: 'Imágenes de malas y deidades',
-      saved: 'guardada', of: 'de',
+      saved: { f: 'guardada', mp: 'guardados', fp: 'guardadas' }, of: 'de',
       btnAll: 'Descargar todo', btnMore: 'Descargar lo que falta', btnStop: 'Parar',
       downloading: 'Descargando…', stopped: 'Descarga detenida. Puedes continuarla cuando quieras.',
       done: 'Listo: ya puedes usar la app sin conexión.',
@@ -39,7 +39,7 @@
       title: 'Use offline',
       sub: 'The app already opens without Internet. Here you can also save the audio and the mala images to use them offline.',
       ui: 'App interface', audio: 'Audio', images: 'Mala and deity images',
-      saved: 'saved', of: 'of',
+      saved: { f: 'saved', mp: 'saved', fp: 'saved' }, of: 'of',
       btnAll: 'Download everything', btnMore: 'Download what is missing', btnStop: 'Stop',
       downloading: 'Downloading…', stopped: 'Download stopped. You can continue whenever you like.',
       done: 'Done: you can now use the app offline.',
@@ -264,10 +264,10 @@
     status().then(function (st) {
       if (seq !== renderSeq) return;      /* llegó tarde: ya hay una pantalla más reciente */
       if (!viewEl || !document.body.contains(viewEl)) return;
-      function line(label, g) {
+      function line(label, g, kind) {
         var ok = g.total && g.have >= g.total;
         return '<li><span>' + label + '</span><span>' +
-          (ok ? '<span class="jp-off-ok">&#10003; ' + T.saved + '</span>' : '<b>' + g.have + '</b> ' + T.of + ' ' + g.total) + '</span></li>';
+          (ok ? '<span class="jp-off-ok">&#10003; ' + T.saved[kind] + '</span>' : '<b>' + g.have + '</b> ' + T.of + ' ' + g.total) + '</span></li>';
       }
       var missBytes = 0, anyMissing = false;
       ['core', 'images', 'audio'].forEach(function (n) {
@@ -279,9 +279,9 @@
         '<h2 class="jp-help-title">' + T.title + '</h2>' +
         '<p class="jp-help-sub">' + T.sub + '</p>' +
         '<ul class="jp-off-list">' +
-          line(T.ui, st.core) +
-          (st.audio.total ? line(T.audio, st.audio) : '') +
-          (st.images.total ? line(T.images, st.images) : '') +
+          line(T.ui, st.core, 'f') +
+          (st.audio.total ? line(T.audio, st.audio, 'mp') : '') +
+          (st.images.total ? line(T.images, st.images, 'fp') : '') +
         '</ul>';
       if (running) {
         html += '<div class="jp-off-bar"><i style="width:' + pct() + '%"></i></div>' +
