@@ -2172,6 +2172,10 @@ window.DISC_PAGES_B64 = {};
     { name: 'Victory', img: 'img/med-hanuman.webp', link: '', square: true, noFrame: true }
   ];
 
+  var booksItems = [
+    { name: 'Mantra Yoga', img: 'img/book-mantra-yoga.webp', link: 'https://payhip.com/b/2lXhW' }
+  ];
+
   function buildStoreGroupHTML(title, items, note) {
     var itemsHtml = items.map(function (it) {
       var imgClass = 'jp-store-img' + (it.square ? ' jp-store-img-square' : '') + (it.noFrame ? ' jp-store-img-noframe' : '');
@@ -2204,6 +2208,7 @@ window.DISC_PAGES_B64 = {};
         buildStoreGroupHTML('Packs', packsItems) +
         buildStoreGroupHTML('Music', musicItems, 'Listen to samples') +
         buildStoreGroupHTML('Meditation', meditationItems) +
+        buildStoreGroupHTML('BOOKS', booksItems) +
       '</div>'
     );
   }
