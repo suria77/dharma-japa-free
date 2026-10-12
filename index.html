@@ -1678,6 +1678,7 @@ window.DISC_PAGES_B64 = {};
   /* Fondos en vídeo bloqueados: solo en gris, sin candado (para que se animen a pulsar y ver la vista previa) */
   .jp-fondo-item.jp-locked::before { content: none; display: none; }
   .jp-audio-btn.jp-locked { opacity: 0.75; }
+  .jp-mode-btn.jp-locked { opacity: 0.6; }
   /* Botón de play de los mantras de planetas: el candado va por encima, aunque la app cambie su icono */
   .jp-mantra-play.jp-locked-play { position: relative; }
   .jp-mantra-play.jp-locked-play::after {
@@ -3762,7 +3763,7 @@ window.DISC_PAGES_B64 = {};
   /* =====================================================================
      FREEMIUM VERSION (Dharma Japa Lite)
      Open: deities Ganesha and Shiva, malas Rudraksha and Sphatik (crystal),
-     all mantras (except the planets), Taanpura base, video backgrounds of
+     Manual Count only (Voice Count and Record & Repeat are locked), all mantras (except the planets), Taanpura base, video backgrounds of
      Durga and Hanuman, store and share. (The Rituals menu is hidden in the
      English version, as in Premium, until the ritual pages are translated.)
      Everything else is visible (greyed out / padlocked) but tapping it shows
@@ -3786,6 +3787,8 @@ window.DISC_PAGES_B64 = {};
     audio:   { title: 'Unlock the background bases', text: 'With the Premium version you get the 3 accompaniment audios (Taanpura, Deep Peace and Cosmos) to practice with in the background.' },
     fondo:   { title: 'Unlock all the backgrounds', text: 'With the Premium version you can set any of the video backgrounds while you practice. This is what this one looks like:' },
     ritual:  { title: 'Unlock the rituals', text: 'With the Premium version you get the illustrated rituals of Ganesha, Shiva, Lakshmi, Hanuman, Durga and Kali.' },
+    modeVoice: { title: 'Unlock Voice Count', text: 'With the Premium version the app counts your repetitions by listening to your voice. It only measures loudness: there is no speech recognition and nothing is uploaded.' },
+    modeAuto: { title: 'Unlock Record & Repeat', text: 'With the Premium version you record your mantra once and the app repeats it for you, counting every repetition while you listen.' },
     mantraPlaneta: { title: 'Unlock the planet mantras', text: 'With the Premium version you listen to the mantra of each of the 9 grahas.' }
   };
 
@@ -3822,6 +3825,13 @@ window.DISC_PAGES_B64 = {};
     if (!b) return;
     b.innerHTML = '&#128274; Play';
     freeLock(b, 'audio');
+  });
+  /* Modos de conteo: en la gratuita solo está abierto Manual Count */
+  [['jp-mode-speech', 'modeVoice'], ['jp-mode-auto', 'modeAuto']].forEach(function (m) {
+    var b = document.getElementById(m[0]);
+    if (!b) return;
+    b.innerHTML = '&#128274; ' + b.innerHTML;
+    freeLock(b, m[1]);
   });
   mantraMenu.querySelectorAll('.jp-mantra-play').forEach(function (b) {
     if (parseInt(b.getAttribute('data-idx'), 10) >= MANTRAS.length) {

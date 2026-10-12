@@ -2,9 +2,9 @@
 
 English free version of Dharma Japa. It is derived from the Premium version (repo `dharma-japa`) and mirrors the Spanish free version (`japa-movil-free`), with these locks:
 
-**Open:** deities Ganesha and Shiva · malas Rudraksha and Sphatik (crystal) · Taanpura audio base · all mantras (except the planets) · video backgrounds of Durga (Simhavahini I) and Hanuman (Veera) · store · share app · install guide (button "? TUTORIAL & INSTALLATION", PDF `pdf/Installation-Guide-Dharma-Japa-Lite.pdf`) · tutorial "Introduction to Mantras".
+**Open:** Manual Count · deities Ganesha and Shiva · malas Rudraksha and Sphatik (crystal) · Taanpura audio base · all mantras (except the planets) · video backgrounds of Durga (Simhavahini I) and Hanuman (Veera) · store · share app · install guide (button "? TUTORIAL & INSTALLATION", PDF `pdf/Installation-Guide-Dharma-Japa-Lite.pdf`) · tutorial "Introduction to Mantras".
 
-**Locked (notice to get Premium):** other deities, the 9 planets, other malas, Deep Peace and Cosmos bases, planet mantras and other backgrounds. For backgrounds, the notice includes a mini player with a short preview (`video/preview/`).
+**Locked (notice to get Premium):** Voice Count and Record & Repeat, other deities, the 9 planets, other malas, Deep Peace and Cosmos bases, planet mantras and other backgrounds. For backgrounds, the notice includes a mini player with a short preview (`video/preview/`).
 
 Purchase link: https://payhip.com/b/JiEve
 
