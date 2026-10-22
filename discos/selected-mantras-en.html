@@ -5,9 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
 <title>Selected Mantras · Samples</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Lora:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  @font-face { font-family: 'Cormorant Garamond'; src: url('../fonts/CormorantGaramond-SemiBold.ttf') format('truetype'); font-weight: 600 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Cormorant Garamond'; src: url('../fonts/CormorantGaramond-Italic.ttf') format('truetype'); font-weight: 400 700; font-style: italic; font-display: swap; }
+  @font-face { font-family: 'EB Garamond'; src: url('../fonts/EBGaramond-Medium.ttf') format('truetype'); font-weight: 500 600; font-style: normal; font-display: swap; }
+</style>
 <style>
   :root {
     --noche: #0d0f23;
@@ -23,7 +25,7 @@
     --cta: #c02a44;
     --cta-deep: #8f1a2e;
     --display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-    --body: "Lora", Georgia, "Times New Roman", serif;
+    --body: "EB Garamond", Georgia, "Times New Roman", serif;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-padding-top: env(safe-area-inset-top, 0px); background: var(--noche); }
